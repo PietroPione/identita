@@ -10,12 +10,22 @@ export default function PinList({ pins, onPinClick }) {
           key={pin.id}
           className="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100 flex flex-col sm:flex-row h-full group"
         >
-          <div className="sm:w-2/5 h-56 sm:h-auto relative overflow-hidden">
-            <img
-              src={pin.image}
-              alt={pin.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
+          <div className="sm:w-2/5 h-56 sm:h-auto relative overflow-hidden bg-black">
+            {pin.videoUrl ? (
+              <iframe
+                className="w-full h-full border-0"
+                src={pin.videoUrl}
+                title={pin.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <img
+                src={pin.image}
+                alt={pin.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            )}
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors pointer-events-none"></div>
           </div>
           <div className="sm:w-3/5 p-8 flex flex-col justify-between bg-white">
@@ -32,7 +42,7 @@ export default function PinList({ pins, onPinClick }) {
               className="flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 py-3 px-6 rounded-2xl font-bold hover:bg-indigo-600 hover:text-white transition-all duration-300 w-full sm:w-fit"
             >
               <Play size={18} fill="currentColor" />
-              Guarda Video
+              Apri a schermo intero
             </button>
           </div>
         </div>

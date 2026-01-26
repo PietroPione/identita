@@ -1,20 +1,20 @@
 [
   {
     "id": 1,
-    "lat": 45.4642,
-    "lng": 9.1900,
-    "title": "Duomo di Milano",
-    "description": "La splendida cattedrale gotica nel cuore di Milano, simbolo della città.",
+    "lat": 40.99639494085417,
+    "lng": 17.22558215276967,
+    "title": "Grotta Ardito delle Caldaie",
+    "description": "Pittoresca grotta marina e un punto panoramico.",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "image": "https://images.unsplash.com/photo-1514890547357-a9ee2887ad8e?auto=format&fit=crop&q=80&w=600"
+    "image": "https://statics.getnofilter.com/photos/regular/a0afacd6-a0bb-41fc-8d0c-b576ac747a7b.jpg"
   },
   {
     "id": 2,
-    "lat": 41.8902,
-    "lng": 12.4922,
-    "title": "Colosseo",
-    "description": "L'antico anfiteatro Flavio, il più grande del mondo, situato nel centro di Roma.",
+    "lat": 40.99661354083074,
+    "lng": 17.224627344158804,
+    "title": "Lungomare di Polignano a Mare",
+    "description": "Lungo mare mozzafiato con spiaggia unica nel suo genere.",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "image": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&q=80&w=600"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Polignano_a_Mare_-_Scogliera_del_Lungomare_Colombo.jpg"
   }
 ]

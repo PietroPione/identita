@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import VideoModal from '@/components/VideoModal';
 import PinList from '@/components/PinList';
-import { MapPin } from 'lucide-react';
 
 const MapComponent = dynamic(() => import('@/components/MapComponent'), {
   ssr: false,
@@ -34,27 +33,21 @@ export default function Home() {
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
         <header className="mb-16 text-center">
-          <div className="inline-flex items-center justify-center p-2 bg-white rounded-3xl shadow-sm mb-6 border border-slate-100">
-            <div className="px-4 py-1.5 bg-indigo-50 rounded-2xl text-indigo-600 text-sm font-bold flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-              </span>
-              Proof of Concept
-            </div>
-          </div>
+          
 
           <div className="flex flex-col items-center justify-center gap-4 mb-6">
-            <div className="p-4 bg-white rounded-[2rem] text-indigo-500 shadow-xl shadow-indigo-100/50 border border-indigo-50/50">
-              <MapPin size={40} />
+            <div className="p-4 bg-white rounded-[2rem] shadow-xl shadow-indigo-100/50 border border-indigo-50/50">
+              <img
+                src="/Logo%20identità.png"
+                alt="Logo Progetto Identita"
+                className="w-24 h-24 object-contain"
+              />
             </div>
             <h1 className="text-5xl font-black text-slate-900 tracking-tight leading-tight">
               Esplora i <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-rose-400">Punti di Interesse</span>
             </h1>
           </div>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-            Un&apos;esperienza immersiva per scoprire le bellezze del territorio attraverso mappe interattive e contenuti video.
-          </p>
+          
         </header>
 
         {/* Map Section */}
@@ -68,7 +61,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <div>
               <h2 className="text-4xl font-black text-slate-900 mb-2">I Luoghi</h2>
-              <p className="text-slate-500 font-medium">Scorri l&apos;elenco dei punti di interesse selezionati per te.</p>
+              <p className="text-slate-500 font-medium">I luoghi visitabili più vicini a te.</p>
             </div>
             <div className="h-0.5 flex-1 bg-slate-100 mb-4 hidden md:block mx-8"></div>
             <div className="text-sm font-bold text-slate-400 uppercase tracking-widest">
@@ -81,7 +74,7 @@ export default function Home() {
         {/* Footer info */}
         <footer className="mt-24 pt-12 border-t border-slate-100 text-center">
           <p className="text-slate-400 text-sm font-medium">
-            &copy; 2025 PoC Mappa Interattiva. Creato con Next.js e Tailwind CSS.
+            Progetto Identità - Creato da: Sara Bianchi e Giorgio Penna
           </p>
         </footer>
       </div>
