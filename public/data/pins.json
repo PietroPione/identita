@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "lat": 45.4642,
+    "lng": 9.1900,
+    "title": "Duomo di Milano",
+    "description": "La splendida cattedrale gotica nel cuore di Milano, simbolo della città.",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "image": "https://images.unsplash.com/photo-1514890547357-a9ee2887ad8e?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": 2,
+    "lat": 41.8902,
+    "lng": 12.4922,
+    "title": "Colosseo",
+    "description": "L'antico anfiteatro Flavio, il più grande del mondo, situato nel centro di Roma.",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "image": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&q=80&w=600"
+  }
+]
