@@ -38,7 +38,7 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center gap-4 mb-6">
             <div className="p-4 bg-white rounded-[2rem] shadow-xl shadow-indigo-100/50 border border-indigo-50/50">
               <img
-                src="/Logo%20identità.png"
+                src="/logo-identita.png"
                 alt="Logo Progetto Identita"
                 className="w-24 h-24 object-contain"
               />
