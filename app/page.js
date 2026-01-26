@@ -10,7 +10,7 @@ const MapComponent = dynamic(() => import('@/components/MapComponent'), {
   loading: () => (
     <div className="h-[500px] w-full bg-slate-50 animate-pulse rounded-[2.5rem] flex items-center justify-center text-slate-400 border-4 border-white shadow-inner">
       <div className="flex flex-col items-center gap-4">
-        <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-500 rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-yellow-200 border-t-yellow-500 rounded-full animate-spin"></div>
         <p className="font-medium">Caricamento mappa interattiva...</p>
       </div>
     </div>
@@ -29,14 +29,14 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#F8FAFC] py-16 px-4 sm:px-6 lg:px-8 font-sans">
+    <main className="min-h-screen bg-[#fefce8] py-16 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
         <header className="mb-16 text-center">
           
 
           <div className="flex flex-col items-center justify-center gap-4 mb-6">
-            <div className="p-4 bg-white rounded-[2rem] shadow-xl shadow-indigo-100/50 border border-indigo-50/50">
+            <div className="p-4 bg-white rounded-[2rem] shadow-xl shadow-yellow-100/50 border border-yellow-50/50">
               <img
                 src="/logo-identita.png"
                 alt="Logo Progetto Identita"
@@ -44,7 +44,7 @@ export default function Home() {
               />
             </div>
             <h1 className="text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              Esplora i <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-rose-400">Punti di Interesse</span>
+              Esplora i <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-blue-400">Punti di Interesse</span>
             </h1>
           </div>
           
@@ -52,7 +52,7 @@ export default function Home() {
 
         {/* Map Section */}
         <section className="mb-24 relative">
-          <div className="absolute -inset-4 bg-gradient-to-br from-indigo-50 to-rose-50 rounded-[3rem] -z-10 blur-2xl opacity-50"></div>
+          <div className="absolute -inset-4 bg-gradient-to-br from-yellow-50 to-blue-50 rounded-[3rem] -z-10 blur-2xl opacity-50"></div>
           <MapComponent pins={pins} onPinClick={setSelectedPin} />
         </section>
 
@@ -79,7 +79,7 @@ export default function Home() {
         </footer>
       </div>
 
-      <VideoModal pin={selectedPin} onClose={() => setSelectedPin(null)} />
+      <VideoModal pin={selectedPin} pins={pins} onClose={() => setSelectedPin(null)} />
     </main>
   );
 }

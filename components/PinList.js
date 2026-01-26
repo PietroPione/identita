@@ -26,7 +26,7 @@ export default function PinList({ pins, onPinClick }) {
                   allowFullScreen
                 ></iframe>
                 <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/0 transition-colors">
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/90 text-indigo-600 shadow-lg">
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/90 text-blue-600 shadow-lg">
                     <Play size={20} fill="currentColor" />
                   </span>
                 </div>
@@ -43,16 +43,16 @@ export default function PinList({ pins, onPinClick }) {
           <div className="sm:w-3/5 p-8 flex flex-col justify-between bg-white">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <span className="w-2 h-2 rounded-full bg-rose-400"></span>
-                <span className="text-xs font-bold text-rose-400 uppercase tracking-widest">Esplora</span>
+                <span className="w-2 h-2 rounded-full bg-yellow-400"></span>
+                <span className="text-xs font-bold text-yellow-600 uppercase tracking-widest">Esplora</span>
               </div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-3 group-hover:text-indigo-600 transition-colors">{pin.title}</h3>
+              <h3 className="text-2xl font-bold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">{pin.title}</h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3 italic">&quot;{pin.description}&quot;</p>
             </div>
             <div className="flex flex-col gap-3">
               <button
                 onClick={() => onPinClick(pin)}
-                className="flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 py-3 px-6 rounded-2xl font-bold hover:bg-indigo-600 hover:text-white transition-all duration-300 w-full"
+                className="flex items-center justify-center gap-2 bg-blue-50 text-blue-600 py-3 px-6 rounded-2xl font-bold hover:bg-blue-600 hover:text-white transition-all duration-300 w-full"
               >
                 <Play size={18} fill="currentColor" />
                 Ascolta la testimonianza
@@ -63,7 +63,7 @@ export default function PinList({ pins, onPinClick }) {
                 )}`}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-2 bg-rose-50 text-rose-600 py-3 px-6 rounded-2xl font-bold hover:bg-rose-600 hover:text-white transition-all duration-300 w-full"
+                className="flex items-center justify-center gap-2 bg-yellow-50 text-yellow-600 py-3 px-6 rounded-2xl font-bold hover:bg-yellow-600 hover:text-white transition-all duration-300 w-full"
               >
                 Ottieni indicazioni
               </a>

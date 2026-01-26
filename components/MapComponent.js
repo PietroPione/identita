@@ -33,7 +33,10 @@ function FitToPins({ pins }) {
 
 export default function MapComponent({ pins, onPinClick }) {
   return (
-    <div className="h-[500px] w-full rounded-2xl overflow-hidden shadow-lg border-4 border-white">
+    <div
+      className="h-[500px] w-full rounded-[2.5rem] overflow-hidden shadow-lg border-8 border-white"
+      style={{ filter: 'sepia(0.4) saturate(1.2) brightness(0.95) contrast(1.1)' }}
+    >
       <MapContainer
         center={[43.5, 12.0]}
         zoom={6}
@@ -62,7 +65,7 @@ export default function MapComponent({ pins, onPinClick }) {
                 <p className="text-base text-slate-600 mb-4">{pin.description}</p>
                 <button
                   onClick={() => onPinClick(pin)}
-                  className="w-full bg-indigo-400 text-white py-2.5 px-4 rounded-xl text-base font-semibold hover:bg-indigo-500 transition-colors"
+                  className="w-full bg-blue-400 text-white py-2.5 px-4 rounded-xl text-base font-semibold hover:bg-blue-500 transition-colors"
                 >
                   Guarda Video
                 </button>
