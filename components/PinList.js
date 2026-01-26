@@ -12,13 +12,25 @@ export default function PinList({ pins, onPinClick }) {
         >
           <div className="sm:w-2/5 h-56 sm:h-auto relative overflow-hidden bg-black">
             {pin.videoUrl ? (
-              <iframe
-                className="w-full h-full border-0"
-                src={pin.videoUrl}
-                title={pin.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              <button
+                type="button"
+                onClick={() => onPinClick(pin)}
+                className="w-full h-full relative block"
+                aria-label={`Apri video: ${pin.title}`}
+              >
+                <iframe
+                  className="w-full h-full border-0 pointer-events-none"
+                  src={pin.videoUrl}
+                  title={pin.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+                <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/0 transition-colors">
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/90 text-indigo-600 shadow-lg">
+                    <Play size={20} fill="currentColor" />
+                  </span>
+                </div>
+              </button>
             ) : (
               <img
                 src={pin.image}
@@ -37,13 +49,25 @@ export default function PinList({ pins, onPinClick }) {
               <h3 className="text-2xl font-bold text-slate-800 mb-3 group-hover:text-indigo-600 transition-colors">{pin.title}</h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3 italic">&quot;{pin.description}&quot;</p>
             </div>
-            <button
-              onClick={() => onPinClick(pin)}
-              className="flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 py-3 px-6 rounded-2xl font-bold hover:bg-indigo-600 hover:text-white transition-all duration-300 w-full sm:w-fit"
-            >
-              <Play size={18} fill="currentColor" />
-              Apri a schermo intero
-            </button>
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={() => onPinClick(pin)}
+                className="flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 py-3 px-6 rounded-2xl font-bold hover:bg-indigo-600 hover:text-white transition-all duration-300 w-full"
+              >
+                <Play size={18} fill="currentColor" />
+                Ascolta la testimonianza
+              </button>
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+                  `${pin.lat},${pin.lng}`
+                )}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 bg-rose-50 text-rose-600 py-3 px-6 rounded-2xl font-bold hover:bg-rose-600 hover:text-white transition-all duration-300 w-full"
+              >
+                Ottieni indicazioni
+              </a>
+            </div>
           </div>
         </div>
       ))}

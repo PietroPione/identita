@@ -22,13 +22,13 @@ export default function VideoModal({ pin, onClose }) {
       <div className="bg-white w-full max-w-6xl h-[90vh] overflow-hidden shadow-2xl relative animate-in fade-in zoom-in duration-300 rounded-3xl">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 bg-white/80 hover:bg-white rounded-full transition-colors shadow-md text-slate-600"
+          className="absolute top-4 right-4 z-50 p-2 bg-white/90 hover:bg-white rounded-full transition-colors shadow-md text-slate-600"
+          aria-label="Chiudi modal"
         >
           <X size={24} />
         </button>
-
         <div className="flex flex-col h-full">
-          <div className="flex-1 bg-black">
+          <div className="flex-1 bg-black py-6 sm:py-0">
             <iframe
               className="w-full h-full border-0"
               src={pin.videoUrl}
