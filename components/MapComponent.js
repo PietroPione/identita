@@ -33,47 +33,64 @@ function FitToPins({ pins }) {
 
 export default function MapComponent({ pins, onPinClick }) {
   return (
-    <div
-      className="h-[500px] w-full rounded-[2.5rem] overflow-hidden shadow-lg border-8 border-white"
-      style={{ filter: 'sepia(0.4) saturate(1.2) brightness(0.95) contrast(1.1)' }}
-    >
-      <MapContainer
-        center={[43.5, 12.0]}
-        zoom={6}
-        style={{ height: '100%', width: '100%' }}
-        scrollWheelZoom={true}
+    <div className="identita-frame h-[500px] w-full shadow-2xl">
+      <div
+        className="identita-frame-inner h-full w-full"
+        style={{ filter: 'sepia(0.4) saturate(1.2) brightness(0.95) contrast(1.1)' }}
       >
-        <FitToPins pins={pins} />
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {pins.map((pin) => (
-          <Marker
-            key={pin.id}
-            position={[pin.lat, pin.lng]}
-            eventHandlers={{
-              click: () => {
-                // We can also trigger the modal directly on click if we want
-                // but usually the Popup is good too.
-              },
-            }}
-          >
-            <Popup maxWidth={800} minWidth={360}>
-              <div className="p-4 max-w-[420px]">
-                <h3 className="font-bold text-slate-800 text-xl mb-2">{pin.title}</h3>
-                <p className="text-base text-slate-600 mb-4">{pin.description}</p>
+        <MapContainer
+          center={[43.5, 12.0]}
+          zoom={6}
+          style={{ height: '100%', width: '100%' }}
+          scrollWheelZoom={true}
+        >
+          <FitToPins pins={pins} />
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {pins.map((pin) => (
+            <Marker
+              key={pin.id}
+              position={[pin.lat, pin.lng]}
+              eventHandlers={{
+                click: () => {
+                  // We can also trigger the modal directly on click if we want
+                  // but usually the Popup is good too.
+                },
+              }}
+            >
+            <Popup maxWidth={420} minWidth={280} closeButton={true}>
+              <div className="px-4 py-3">
+                <h3 className="font-bold text-slate-800 text-base mb-1">{pin.title}</h3>
+                <p className="text-sm text-slate-600 mb-3">Narrato da: {pin.narratore}</p>
                 <button
                   onClick={() => onPinClick(pin)}
-                  className="w-full bg-blue-400 text-white py-2.5 px-4 rounded-xl text-base font-semibold hover:bg-blue-500 transition-colors"
+                  className="w-full identita-button-yellow py-2 px-3 rounded-lg text-sm font-semibold transition-colors"
                 >
                   Guarda Video
                 </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    window.open(
+                      `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+                        `${pin.lat},${pin.lng}`
+                      )}`,
+                      '_blank',
+                      'noopener,noreferrer'
+                    )
+                  }
+                  className="mt-2 flex items-center justify-center w-full identita-button-yellow py-2 px-3 rounded-lg text-sm font-semibold transition-colors"
+                >
+                  Ottieni indicazioni
+                </button>
               </div>
             </Popup>
-          </Marker>
-        ))}
-      </MapContainer>
+            </Marker>
+          ))}
+        </MapContainer>
+      </div>
     </div>
   );
 }

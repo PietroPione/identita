@@ -1,11 +1,14 @@
 'use client';
 
 import { X } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function VideoModal({ pin, pins, onClose }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   useEffect(() => {
     if (!pin) return;
+    setIsPlaying(false);
 
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') onClose();
@@ -17,13 +20,29 @@ export default function VideoModal({ pin, pins, onClose }) {
 
   if (!pin) return null;
 
+  const getPreviewImage = () => pin.image || null;
+
+  const getVideoUrl = () => {
+    if (!pin.videoUrl) return '';
+    if (!isPlaying) return pin.videoUrl;
+    const hasQuery = pin.videoUrl.includes('?');
+    return `${pin.videoUrl}${hasQuery ? '&' : '?'}autoplay=1`;
+  };
+
   const nextPin = pins && pins.length > 0
     ? pins[(pins.findIndex(p => p.id === pin.id) + 1) % pins.length]
     : null;
 
   return (
-    <div className="fixed inset-0 z-[2000] bg-black/40 backdrop-blur-sm flex items-center justify-center px-4 sm:px-8">
-      <div className="relative w-full max-w-5xl animate-in fade-in zoom-in duration-300">
+    <div
+      className="fixed inset-0 z-[2000] bg-black/40 backdrop-blur-sm flex items-center justify-center px-4 sm:px-8"
+      onClick={onClose}
+      role="presentation"
+    >
+      <div
+        className="relative w-full max-w-5xl animate-in fade-in zoom-in duration-300"
+        onClick={(event) => event.stopPropagation()}
+      >
         {/* Logo in top right */}
         <div className="absolute -top-12 -right-8 z-[2100] w-32 h-32 md:w-40 md:h-40">
           <img
@@ -34,12 +53,12 @@ export default function VideoModal({ pin, pins, onClose }) {
         </div>
 
         {/* Modal Container with Yellow Border */}
-        <div className="bg-[#fbbf24] p-[10px] md:p-[12px] rounded-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden">
-          <div className="bg-black rounded-[2rem] md:rounded-[2.5rem] overflow-hidden flex flex-col">
+        <div className="identita-frame shadow-2xl">
+          <div className="identita-frame-inner flex flex-col">
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 z-50 p-2 bg-black/20 hover:bg-black/40 text-white rounded-full transition-colors md:hidden"
+              className="absolute top-6 right-6 z-50 p-2 bg-black/60 hover:bg-black/80 text-white rounded-full transition-colors md:hidden"
               aria-label="Chiudi modal"
             >
               <X size={20} />
@@ -55,18 +74,44 @@ export default function VideoModal({ pin, pins, onClose }) {
             </button>
 
             {/* Video Area */}
-            <div className="aspect-video w-full">
-              <iframe
-                className="w-full h-full border-0"
-                src={pin.videoUrl}
-                title={pin.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+            <div className="aspect-video w-full identita-panel relative overflow-hidden">
+              {isPlaying || !pin.videoUrl ? (
+                <iframe
+                  className="absolute inset-0 w-full h-full border-0"
+                  src={getVideoUrl()}
+                  title={pin.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setIsPlaying(true)}
+                  className="absolute inset-0 block"
+                  aria-label={`Riproduci video: ${pin.title}`}
+                >
+                  {getPreviewImage() ? (
+                    <img
+                      src={getPreviewImage()}
+                      alt={`Preview ${pin.title}`}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-black"></div>
+                  )}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/10">
+                    <img
+                      src="/PlayAzzurro.png"
+                      alt="Play"
+                      className="w-20 h-20 md:w-24 md:h-24 object-contain opacity-90"
+                    />
+                  </div>
+                </button>
+              )}
             </div>
 
             {/* Light Blue Footer */}
-            <div className="bg-[#93c5fd] p-6 md:p-8 text-white">
+            <div className="identita-footer p-6 md:p-8">
               <div className="flex flex-col gap-1">
                 <h2 className="text-xl md:text-2xl font-bold leading-tight">
                   {pin.title}

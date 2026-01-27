@@ -2,7 +2,12 @@
 
 :root {
   --background: #fefce8;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  --identita-yellow: #fbbf24;
+  --identita-blue: #93c5fd;
+  --identita-blue-strong: #1d4ed8;
+  --identita-black: #0b0b0b;
+  --identita-white: #ffffff;
 }
 
 @theme inline {
@@ -19,15 +24,120 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Leaflet popup: reset to default white */
 .leaflet-popup-content-wrapper {
-  border-radius: 24px;
+  border-radius: 12px;
+  border: none;
+  padding: 8px;
+  background: #ffffff;
 }
 
 .leaflet-popup-content {
-  width: min(560px, 80vw);
+  width: min(420px, 80vw);
   margin: 0;
+  padding: 0;
+  background: transparent;
 }
 
 .leaflet-popup-content p {
   margin: 0;
+}
+
+.leaflet-popup-content a.identita-button-yellow {
+  color: var(--identita-white) !important;
+  text-decoration: none;
+}
+
+.leaflet-control-zoom a {
+  color: #000 !important;
+}
+
+.leaflet-control-zoom a,
+.leaflet-control-zoom a:hover,
+.leaflet-control-zoom a.leaflet-disabled {
+  color: #000 !important;
+  background: #fff !important;
+}
+
+.leaflet-control-zoom.leaflet-bar {
+  background: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+}
+
+/* Use default Leaflet tip and close button styling */
+
+
+@media (min-width: 768px) {
+  .identita-frame {
+    padding: 12px;
+    border-radius: 3rem;
+  }
+
+  .identita-frame-inner {
+    border-radius: 2.5rem;
+  }
+}
+
+@layer utilities {
+  .identita-frame {
+    background: var(--identita-yellow);
+    padding: 10px;
+    border-radius: 2.5rem;
+  }
+
+  .identita-frame-inner {
+    background: var(--identita-white);
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+
+  .identita-bg {
+    background: var(--identita-yellow);
+  }
+
+  .identita-panel {
+    background: var(--identita-blue);
+    color: var(--identita-white);
+  }
+
+  .identita-footer {
+    background: var(--identita-blue);
+    color: var(--identita-white);
+  }
+
+  .identita-text-strong {
+    color: var(--identita-blue-strong);
+  }
+
+  .identita-outline {
+    border: 3px solid var(--identita-yellow);
+  }
+
+  .identita-button-primary {
+    background: var(--identita-black);
+    color: var(--identita-white);
+  }
+
+  .identita-button-primary:hover {
+    background: #111827;
+  }
+
+  .identita-button-secondary {
+    background: var(--identita-blue);
+    color: var(--identita-black);
+  }
+
+  .identita-button-secondary:hover {
+    background: #60a5fa;
+  }
+
+  .identita-button-yellow {
+    background: var(--identita-yellow);
+    color: var(--identita-white);
+  }
+
+  .identita-button-yellow:hover {
+    background: #f59e0b;
+  }
 }

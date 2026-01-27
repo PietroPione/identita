@@ -3,18 +3,36 @@
     "id": 1,
     "lat": 40.99639494085417,
     "lng": 17.22558215276967,
-    "title": "Grotta Ardito delle Caldaie",
-    "description": "Pittoresca grotta marina e un punto panoramico.",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "image": "https://statics.getnofilter.com/photos/regular/a0afacd6-a0bb-41fc-8d0c-b576ac747a7b.jpg"
+    "title": "Cala vecchia",
+    "narratore": "Gianni",
+    "videoUrl": "https://www.youtube.com/embed/PZNgzWXPGmg?si=M84WXBK0UWxZHsnn",
+    "image": "/Gianni.jpg"
   },
   {
     "id": 2,
     "lat": 40.99661354083074,
     "lng": 17.224627344158804,
-    "title": "Lungomare di Polignano a Mare",
-    "description": "Lungo mare mozzafiato con spiaggia unica nel suo genere.",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Polignano_a_Mare_-_Scogliera_del_Lungomare_Colombo.jpg"
+    "title": "Chiasso San Vito",
+    "narratore": "Seppina",
+    "videoUrl": "https://www.youtube.com/embed/6RekOa1kz5M?si=u_Oybbz_c81fOfZ_",
+    "image": "/nonnakekka.jpg"
+  },
+  {
+    "id": 3,
+    "lat": 40.9959,
+    "lng": 17.2229,
+    "title": "Canto Popolare",
+    "narratore": "Peppino",
+    "videoUrl": "https://www.youtube.com/embed/h0wn3i6-FnE?si=736psODUBj9qpo_E",
+    "image": "/cantoPop.jpg"
+  },
+  {
+    "id": 4,
+    "lat": 40.9962,
+    "lng": 17.2236,
+    "title": "Le Porte e la Cinta muraria",
+    "narratore": "Vincenzo",
+    "videoUrl": "https://www.youtube.com/embed/Ovdk2bnSVPI?si=hREKPfpJr-5yZm9T",
+    "image": "/porteCinta.jpg"
   }
 ]
